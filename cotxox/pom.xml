@@ -52,6 +52,18 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
+            <!-- Seccion configuration para generar un jar ejecutable de la app -->
+          <configuration>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <mainClass>edu.craptocraft.cotxox.Cotxox</mainClass>
+              </manifest>
+              <manifestEntries>
+                <url>${project.url}</url>
+              </manifestEntries>
+            </archive>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
@@ -69,22 +81,6 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-            <!-- Seccion configuration para generar un jar ejecutable de la app -->
-          <configuration>
-            <archive>
-              <manifest>
-                <addClasspath>true</addClasspath>
-                <mainClass>edu.craptocraft.NOMBREPROJECTO.App</mainClass>
-              </manifest>
-              <manifestEntries>
-                <url>${project.url}</url>
-              </manifestEntries>
-            </archive>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

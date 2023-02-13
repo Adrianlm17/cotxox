@@ -3,7 +3,6 @@ package edu.craptocraft.cotxox;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Cotxox {
 
 	public static void main(String[] args) {
