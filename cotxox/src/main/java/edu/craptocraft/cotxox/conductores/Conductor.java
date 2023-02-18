@@ -1,5 +1,7 @@
 package edu.craptocraft.cotxox.conductores;
 
+import java.util.ArrayList;
+
 public class Conductor {
 
     public String nombre; 
@@ -7,6 +9,8 @@ public class Conductor {
     public String modelo;
     public byte starts;
     public boolean ocupado = false;
+    private double valoracionMedia = 0;
+    private ArrayList<Byte> valoraciones = new ArrayList<>();
 
     public Conductor(){};
 
@@ -20,10 +24,6 @@ public class Conductor {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public void setValoracion(byte starts) {
-        this.starts = starts;
     }
 
     public boolean isOcupado() {
@@ -46,8 +46,23 @@ public class Conductor {
         return this.matricula;
     }
 
-    public byte getValoracion(){
-        return this.starts;
+    public double getValoracion(){
+        return this.valoracionMedia;
+    }
+
+    private double calcularValoracionMedia() {
+		int sumaValoraciones = 0;
+		for (byte starts : this.valoraciones) {
+			sumaValoraciones += starts;
+		}
+		this.valoracionMedia = (double) sumaValoraciones / this.valoraciones.size();
+		return this.valoracionMedia;
+	}
+
+    
+    public void setValoracion(byte starts) {
+        this.valoraciones.add(starts);
+		this.calcularValoracionMedia();
     }
 
 }
