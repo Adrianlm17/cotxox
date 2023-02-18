@@ -3,6 +3,10 @@ package edu.craptocraft.cotxox;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.craptocraft.cotxox.carrera.Carrera;
+import edu.craptocraft.cotxox.conductores.Conductor;
+import edu.craptocraft.cotxox.conductores.PoolConductores;
+
 public class Cotxox {
 
 	public static void main(String[] args) {
@@ -104,7 +108,7 @@ public class Cotxox {
 		System.out.println("Driver: " + carrera.getConductor().getNombre());
 		System.out.println("TIP: " + carrera.getPropina());
 		System.out.println("Visa: " + carrera.getTarjetaCredito());
-		System.out.println("Total: " + carrera.getCosteTotal());
+		System.out.println("Total: " + carrera.getCosteEsperado());
 		System.out.println("Ocupado?: " + carrera.getConductor().isOcupado());
 
 		System.out.println("\n#####" + "\t Rate your driver: \t" + "#####\n");
