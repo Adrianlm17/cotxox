@@ -2,6 +2,7 @@ package edu.craptocraft.cotxox.carrera;
 
 import edu.craptocraft.cotxox.conductores.Conductor;
 import edu.craptocraft.cotxox.conductores.PoolConductores;
+import edu.craptocraft.cotxox.tarifa.Tarifa;
 
 public class Carrera {
 
@@ -11,9 +12,16 @@ public class Carrera {
     public String origen;
     public String destino;
     public double distancia;
-    public int tiempoEsperadoMinutos;
 
+    public double tiempoEsperado;
+    public double tiempoCarrera;
+    public double costeTotal;
 
+    private int propina;
+
+    private int tiempoEsperadoMinutos;
+
+    private double pago;
 
     public Carrera(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
@@ -51,8 +59,8 @@ public class Carrera {
         return this.distancia;
     }
 
-    public int getCosteEsperado() {
-        return this.tiempoEsperadoMinutos;
+    public double getCosteEsperado() {
+        return Tarifa.getCosteTotalEsperado(this);
     }
 
     public void asignarConductor(PoolConductores conductores) {
@@ -66,4 +74,25 @@ public class Carrera {
     public Conductor getConductor() {
         return this.conductor;
     }
+
+    public void realizarPago(double pago) {
+        this.pago = pago;
+    }
+
+	public void recibirPropina(int propina) {
+        this.propina = propina;
+	}
+
+	public int getPropina() {
+		return this.propina;
+	}
+
+    public double getTiempoEsperado() {
+        return this.tiempoEsperadoMinutos;
+    }
+
+    public void liberarConductor() {
+        getConductor().setOcupado(false);
+    }
+    
 }
