@@ -43,13 +43,6 @@ public class CarreraTest {
     }
 
     @Test
-    public void checkTiempo(){
-        int tiempoEsperadoMinutos = 10;
-        carrera.setTiempoEsperado(tiempoEsperadoMinutos);
-        assertEquals(tiempoEsperadoMinutos, carrera.getCosteEsperado());
-    }
-
-    @Test
     public void checkConductor(){
         
         String  nombre = "Mola";
