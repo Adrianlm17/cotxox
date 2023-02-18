@@ -21,8 +21,6 @@ public class Carrera {
 
     private int tiempoEsperadoMinutos;
 
-    private double pago;
-
     public Carrera(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
@@ -76,8 +74,8 @@ public class Carrera {
     }
 
     public void realizarPago(double pago) {
-        this.pago = pago;
-    }
+		this.costeTotal = pago;
+	}
 
 	public void recibirPropina(int propina) {
         this.propina = propina;
